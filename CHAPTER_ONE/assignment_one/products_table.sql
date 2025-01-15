@@ -1,0 +1,14 @@
+use e_commerce_db;
+CREATE TABLE products (
+ id SERIAL PRIMARY KEY,
+ category_id BIGINT UNSIGNED NOT NULL,
+ name VARCHAR(100),
+ description TEXT,
+ price DECIMAL(10, 2) NOT NULL,
+ stock_quantity INT NOT NULL DEFAULT 0,
+ product_image VARCHAR(255),
+ created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+ updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+ FOREIGN KEY (category_id) REFERENCES categories(id)
+ 
+);
